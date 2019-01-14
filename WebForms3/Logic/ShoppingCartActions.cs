@@ -202,7 +202,16 @@ namespace WebForms3.Logic
             // Return 0 if all entries are null         
             return count ?? 0;
         }
-
+        public void MigrateCart(string cartId, string userName)
+        {
+            var shoppingCart = _db.ShoppingCartItems.Where(c => c.CartId == cartId);
+            foreach (CartItem item in shoppingCart)
+            {
+                item.CartId = userName;
+            }
+            HttpContext.Current.Session[CartSessionKey] = userName;
+            _db.SaveChanges();
+        }
         public struct ShoppingCartUpdates
         {
             public int ProductId;

@@ -238,7 +238,7 @@
     <Content Include="Catalog\Images\truckearly.png" />
     <Content Include="Catalog\Images\truckfire.png" />
     <Content Include="Checkout\CheckoutCancel.aspx" />
-    <Content Include="Checkout\CheckoutCompletr.aspx" />
+    <Content Include="Checkout\CheckoutComplete.aspx" />
     <Content Include="Checkout\CheckoutError.aspx" />
     <Content Include="Checkout\CheckoutReview.aspx" />
     <Content Include="Checkout\CheckoutStart.aspx" />
@@ -440,12 +440,12 @@
     <Compile Include="Checkout\CheckoutCancel.aspx.designer.cs">
       <DependentUpon>CheckoutCancel.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Checkout\CheckoutCompletr.aspx.cs">
-      <DependentUpon>CheckoutCompletr.aspx</DependentUpon>
+    <Compile Include="Checkout\CheckoutComplete.aspx.cs">
+      <DependentUpon>CheckoutComplete.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Checkout\CheckoutCompletr.aspx.designer.cs">
-      <DependentUpon>CheckoutCompletr.aspx</DependentUpon>
+    <Compile Include="Checkout\CheckoutComplete.aspx.designer.cs">
+      <DependentUpon>CheckoutComplete.aspx</DependentUpon>
     </Compile>
     <Compile Include="Checkout\CheckoutError.aspx.cs">
       <DependentUpon>CheckoutError.aspx</DependentUpon>

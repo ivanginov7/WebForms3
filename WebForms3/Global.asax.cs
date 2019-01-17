@@ -24,6 +24,23 @@ namespace WebForms3
             //create custom role and user
             RoleActions roleActioons = new RoleActions();
             roleActioons.AddUserAndRole();
+            // Add Routes.
+            RegisterCustomRoutes(RouteTable.Routes);
+        }
+
+        void RegisterCustomRoutes(RouteCollection routes)
+        {
+            routes.MapPageRoute(
+                "ProductsByCategoryRoute",
+                "Category/{categoryName}",
+                "~/ProductList.aspx"
+            );
+            routes.MapPageRoute(
+                "ProductByNameRoute",
+                "Product/{productName}",
+                "~/ProductDetails.aspx"
+            );
         }
     }
+    
 }

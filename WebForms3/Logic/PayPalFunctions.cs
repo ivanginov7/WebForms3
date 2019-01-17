@@ -176,6 +176,11 @@ namespace WebForms3.Logic
 
         public string HttpCall(string NvpRequest)
         {
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
+                   | SecurityProtocolType.Tls11
+                   | SecurityProtocolType.Tls12
+                   | SecurityProtocolType.Ssl3;
             string url = pEndPointURL;
 
             string strPost = NvpRequest + "&" + buildCredentialsNVPString();
@@ -186,17 +191,16 @@ namespace WebForms3.Logic
             objRequest.Method = "POST";
             objRequest.ContentLength = strPost.Length;
 
-            try
-            {
+            
                 using (StreamWriter myWriter = new StreamWriter(objRequest.GetRequestStream()))
                 {
                     myWriter.Write(strPost);
                 }
-            }
-            catch (Exception)
-            {
-                // No logging for this tutorial.
-            }
+            
+            //catch (Exception)
+            //{
+            //    //No logging for this tutorial.
+            //}
 
             //Retrieve the Response returned from the NVP API call to PayPal.
             HttpWebResponse objResponse = (HttpWebResponse)objRequest.GetResponse();

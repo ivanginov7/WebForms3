@@ -44,9 +44,10 @@ namespace WebForms3.Checkout
                     ApplicationDbContext _db = new ApplicationDbContext();
                     // Get the current order id.
                     int currentOrderId = -1;
-                    if ((string)Session["currentOrderId"] != string.Empty)
+                    var temp = Session["currentOrderId"];
+                    if (Convert.ToString(temp) != string.Empty)
                     {
-                        currentOrderId = Convert.ToInt32(Session["currentOrderID"]);
+                        currentOrderId = Convert.ToInt32(temp);
                     }
                     Order myCurrentOrder;
                     if (currentOrderId >= 0)

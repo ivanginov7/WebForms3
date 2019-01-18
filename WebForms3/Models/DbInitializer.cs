@@ -6,7 +6,7 @@ using System.Web;
 
 namespace WebForms3.Models
 {
-    public class DbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
+    public class DbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {

@@ -42,4 +42,9 @@
             </div>
         </div>
     </div>
+    <asp:PlaceHolder runat="server" ID="SuccessMessage" Visible="false">
+                    <p class="text-success">
+                        <asp:Literal runat="server" ID="SucessText" />
+                    </p>
+                </asp:PlaceHolder>
 </asp:Content>

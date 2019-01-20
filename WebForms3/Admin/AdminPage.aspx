@@ -49,7 +49,7 @@
     <asp:Button ID="AddProductButton" runat="server" Text="Add Product" OnClick="AddProductButton_Click"  CausesValidation="true"/>
     <asp:Label ID="LabelAddStatus" runat="server" Text=""></asp:Label>
     <p></p>
-    <h3>Remove Product:</h3>
+    <h3>Update Or Remove Product:</h3>
     <table>
         <tr>
             <td><asp:Label ID="LabelRemoveProduct" runat="server">Product:</asp:Label></td>

@@ -2,8 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Administration</h1>
     <hr />
-    <h3>Add Product:</h3>
-    <table>
+    <%--<h3>Add Product:</h3>--%>
+    <%--<table>
         <tr>
             <td><asp:Label ID="LabelAddCategory" runat="server">Category:</asp:Label></td>
             <td>
@@ -46,7 +46,7 @@
     </table>
     <p></p>
     <p></p>
-    <asp:Button ID="AddProductButton" runat="server" Text="Add Product" OnClick="AddProductButton_Click"  CausesValidation="true"/>
+    <asp:Button ID="AddProductButton" runat="server" Text="Add Product" OnClick="AddProductButton_Click"  CausesValidation="true"/>--%>
     <asp:Label ID="LabelAddStatus" runat="server" Text=""></asp:Label>
     <p></p>
     <h3>Update Or Remove Product:</h3>
@@ -89,7 +89,7 @@
             <td>
                 <asp:TextBox ID="UpdatePriceTextBox" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="UpdatePriceRequiredFieldValidator" runat="server" Text="* Price required." ControlToValidate="UpdatePriceTextBox" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" Text="* Must be a valid price without $." ControlToValidate="UpdatePriceTextBox" SetFocusOnError="True" Display="Dynamic" ValidationExpression="^[0-9]*(\.)?[0-9]?[0-9]?$"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="UpdatePriceRegularExpressionValidator" runat="server" Text="* Must be a valid price without $." ControlToValidate="UpdatePriceTextBox" SetFocusOnError="True" Display="Dynamic" ValidationExpression="^[0-9]*(\.)?[0-9]?[0-9]?$"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>

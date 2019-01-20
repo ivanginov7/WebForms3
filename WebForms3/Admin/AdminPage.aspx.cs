@@ -30,9 +30,9 @@ namespace WebForms3.Admin
         {
             Boolean fileOK = false;
             String path = Server.MapPath("~/Catalog/Images/");
-            if (ProductImage.HasFile)
+            if (UpdateFileUpload.HasFile)
             {
-                String fileExtension = System.IO.Path.GetExtension(ProductImage.FileName).ToLower();
+                String fileExtension = System.IO.Path.GetExtension(UpdateFileUpload.FileName).ToLower();
                 String[] allowedExtensions = { ".gif", ".png", ".jpeg", ".jpg" };
                 for (int i = 0; i < allowedExtensions.Length; i++)
                 {
@@ -48,9 +48,9 @@ namespace WebForms3.Admin
                 try
                 {
                     // Save to Images folder.
-                    ProductImage.PostedFile.SaveAs(path + ProductImage.FileName);
+                    UpdateFileUpload.PostedFile.SaveAs(path + UpdateFileUpload.FileName);
                     // Save to Images/Thumbs folder.
-                    ProductImage.PostedFile.SaveAs(path + "Thumbs/" + ProductImage.FileName);
+                    UpdateFileUpload.PostedFile.SaveAs(path + "Thumbs/" + UpdateFileUpload.FileName);
                 }
                 catch (Exception ex)
                 {
@@ -59,8 +59,8 @@ namespace WebForms3.Admin
 
                 // Add product data to DB.
                 AddProducts products = new AddProducts();
-                bool addSuccess = products.AddProduct(AddProductName.Text, AddProductDescription.Text,
-                    AddProductPrice.Text, DropDownAddCategory.SelectedValue, ProductImage.FileName);
+                bool addSuccess = products.AddProduct(UpdateNameTextBox.Text, UpdateDescriptionTextBox.Text,
+                    UpdatePriceTextBox.Text, UpdateCategoryDropDownList.SelectedValue, UpdateFileUpload.FileName);
                 if (addSuccess)
                 {
                     // Reload the page.

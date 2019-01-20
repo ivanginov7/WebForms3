@@ -11,6 +11,7 @@ namespace WebForms3.Admin
 {
     public partial class AdminPage : System.Web.UI.Page
     {
+        private Product updateProduct = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             string productAction = Request.QueryString["ProductAction"];
@@ -120,7 +121,17 @@ namespace WebForms3.Admin
 
         protected void DropDownRemoveProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            using (var db = new ApplicationDbContext())
+            {
+                this.updateProduct = db.Products.Where(p => p.ProductID == DropDownRemoveProduct.SelectedIndex+1).FirstOrDefault();
+                if (updateProduct != null)
+                {
+                    UpdateNameTextBox.Text = updateProduct.ProductName;
+                    UpdateDescriptionTextBox.Text = updateProduct.Description;
+                    UpdatePriceTextBox.Text = updateProduct.UnitPrice.ToString();
+                    UpdateCategoryDropDownList.SelectedIndex = Convert.ToInt16(updateProduct.CategoryID) - 1;
+                }
+            }
         }
     }
 }

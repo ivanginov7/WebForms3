@@ -118,7 +118,7 @@ namespace WebForms3.Admin
         {
             if (Page.IsValid)
             {
-                if (UpdateCategoryDropDownList.SelectedIndex != -1)
+                if (DropDownRemoveProduct.SelectedIndex > 0)
                 {
                     using (var db = new ApplicationDbContext())
                     {

@@ -59,6 +59,46 @@
                 </asp:DropDownList>
             </td>
         </tr>
+    
+        <tr>
+            <td><asp:Label ID="UpdateCategoryLabel" runat="server">Category:</asp:Label></td>
+            <td>
+                <asp:DropDownList ID="UpdateCategoryDropDownList" runat="server" 
+                    ItemType="WebForms3.Models.Category" 
+                    SelectMethod="GetCategories" DataTextField="CategoryName" 
+                    DataValueField="CategoryID" >
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td><asp:Label ID="UpdateNameLabel" runat="server">Name:</asp:Label></td>
+            <td>
+                <asp:TextBox ID="UpdateNameTextBox" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="UpdateNameRequiredFieldValidator" runat="server" Text="* Product name required." ControlToValidate="UpdateNameTextBox" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+            </td>
+        </tr>
+        <tr>
+            <td><asp:Label ID="UpdateDescriptionLabel" runat="server">Description:</asp:Label></td>
+            <td>
+                <asp:TextBox ID="UpdateDescriptionTextBox" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="UpdateDescriptionRequiredFieldValidator" runat="server" Text="* Description required." ControlToValidate="UpdateDescriptionTextBox" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+            </td>
+        </tr>
+        <tr>
+            <td><asp:Label ID="UpdatePriceLabel" runat="server">Price:</asp:Label></td>
+            <td>
+                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" Text="* Price required." ControlToValidate="AddProductPrice" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" Text="* Must be a valid price without $." ControlToValidate="AddProductPrice" SetFocusOnError="True" Display="Dynamic" ValidationExpression="^[0-9]*(\.)?[0-9]?[0-9]?$"></asp:RegularExpressionValidator>
+            </td>
+        </tr>
+        <tr>
+            <td><asp:Label ID="Label5" runat="server">Image File:</asp:Label></td>
+            <td>
+                <asp:FileUpload ID="FileUpload1" runat="server" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" Text="* Image path required." ControlToValidate="ProductImage" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+            </td>
+        </tr>
     </table>
     <p></p>
     <asp:Button ID="RemoveProductButton" runat="server" Text="Remove Product" OnClick="RemoveProductButton_Click" CausesValidation="false"/>

@@ -39,7 +39,8 @@ namespace WebForms3.Logic
                 var appUser = new ApplicationUser
                 {
                     UserName = "canEditUser@wingtiptoys.com",
-                    Email = "canEditUser@wingtiptoys.com"
+                    Email = "canEditUser@wingtiptoys.com",
+                    EmailConfirmed = true
                 };
                 IdUserResult = userMgr.Create(appUser, "Pa$$word1");
             }

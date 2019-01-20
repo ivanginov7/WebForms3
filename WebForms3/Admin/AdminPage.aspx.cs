@@ -116,7 +116,23 @@ namespace WebForms3.Admin
 
         protected void UpdateProductButton_Click(object sender, EventArgs e)
         {
-
+            if (Page.IsValid)
+            {
+                using (var db = new ApplicationDbContext())
+                {
+                    var ID = DropDownRemoveProduct.SelectedIndex + 1;
+                    if (db.Products.Any(p => p.ProductID == ID))
+                    {
+                        var updatedProduct = new Product { ProductID = ID };
+                        updateProduct.ProductName = UpdateNameTextBox.Text;
+                        updateProduct.Description = UpdateDescriptionTextBox.Text;
+                        updateProduct.UnitPrice = Convert.ToDouble(UpdatePriceTextBox.Text);
+                        updateProduct.CategoryID = UpdateCategoryDropDownList.SelectedIndex + 1;
+                        db.Entry<Product>(updateProduct).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+            }
         }
 
         protected void DropDownRemoveProduct_SelectedIndexChanged(object sender, EventArgs e)

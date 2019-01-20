@@ -56,6 +56,9 @@
             <td><asp:DropDownList ID="DropDownRemoveProduct" runat="server" ItemType="WebForms3.Models.Product" 
                     SelectMethod="GetProducts" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="DropDownRemoveProduct_SelectedIndexChanged"
                     DataTextField="ProductName" DataValueField="ProductID" >
+                <Items>
+                    <asp:ListItem Text="Select" Value="" Enabled />
+                </Items>
                 </asp:DropDownList>
             </td>
         </tr>
@@ -96,8 +99,8 @@
             <td><asp:Label ID="UpdateFileLabel" runat="server">Image File:</asp:Label></td>
             <td>
                 <asp:FileUpload ID="UpdateFileUpload" runat="server" />
-                <asp:RequiredFieldValidator ID="UpdateFileRequiredFieldValidator" runat="server" Text="* Image path required." ControlToValidate="UpdateFileUpload" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
-            </td>
+                <!--<asp:RequiredFieldValidator ID="UpdateFileRequiredFieldValidator" runat="server" Text="* Image path required." ControlToValidate="UpdateFileUpload" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+            --></td>
         </tr>
     </table>
     <p></p>

@@ -26,7 +26,7 @@ namespace WebForms3.Admin
             }
         }
 
-        protected void AddProductButton_Click(object sender, EventArgs e)
+        protected void AddProduct()
         {
             Boolean fileOK = false;
             String path = Server.MapPath("~/Catalog/Images/");
@@ -118,19 +118,25 @@ namespace WebForms3.Admin
         {
             if (Page.IsValid)
             {
-                using (var db = new ApplicationDbContext())
+                if (UpdateCategoryDropDownList.SelectedIndex != -1)
                 {
-                    var ID = DropDownRemoveProduct.SelectedIndex + 1;
-                    if (db.Products.Any(p => p.ProductID == ID))
+                    using (var db = new ApplicationDbContext())
                     {
-                        var updatedProduct = new Product { ProductID = ID };
-                        updateProduct.ProductName = UpdateNameTextBox.Text;
-                        updateProduct.Description = UpdateDescriptionTextBox.Text;
-                        updateProduct.UnitPrice = Convert.ToDouble(UpdatePriceTextBox.Text);
-                        updateProduct.CategoryID = UpdateCategoryDropDownList.SelectedIndex + 1;
-                        db.Entry<Product>(updateProduct).State = System.Data.Entity.EntityState.Modified;
-                        db.SaveChanges();
+                        var ID = DropDownRemoveProduct.SelectedIndex;
+                        if (db.Products.Any(p => p.ProductID == ID))
+                        {
+                            var updatedProduct = new Product { ProductID = ID };
+                            updatedProduct.ProductName = UpdateNameTextBox.Text;
+                            updatedProduct.Description = UpdateDescriptionTextBox.Text;
+                            updatedProduct.UnitPrice = Convert.ToDouble(UpdatePriceTextBox.Text);
+                            updatedProduct.CategoryID = UpdateCategoryDropDownList.SelectedIndex + 1;
+                            db.Entry(updatedProduct).State = System.Data.Entity.EntityState.Modified;
+                            db.SaveChanges();
+                        }
                     }
+                } else
+                {
+                    AddProduct();
                 }
             }
         }
@@ -139,7 +145,7 @@ namespace WebForms3.Admin
         {
             using (var db = new ApplicationDbContext())
             {
-                this.updateProduct = db.Products.Where(p => p.ProductID == DropDownRemoveProduct.SelectedIndex+1).FirstOrDefault();
+                this.updateProduct = db.Products.Where(p => p.ProductID == DropDownRemoveProduct.SelectedIndex).FirstOrDefault();
                 if (updateProduct != null)
                 {
                     UpdateNameTextBox.Text = updateProduct.ProductName;

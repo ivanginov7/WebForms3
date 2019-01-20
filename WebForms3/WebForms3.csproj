@@ -205,7 +205,6 @@
     <Content Include="AddToCart.aspx" />
     <Content Include="Admin\AdminDashboard.aspx" />
     <Content Include="Admin\AdminPage.aspx" />
-    <Content Include="Admin\EditProduct.aspx" />
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Catalog\Images\boatbig.png" />
     <Content Include="Catalog\Images\boatpaper.png" />
@@ -446,13 +445,6 @@
     <Compile Include="Admin\AdminPage.aspx.designer.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\EditProduct.aspx.cs">
-      <DependentUpon>EditProduct.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\EditProduct.aspx.designer.cs">
-      <DependentUpon>EditProduct.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -536,7 +528,6 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ViewModels\ProductsWithCategoriesViewModel.cs" />
     <Compile Include="ProductDetails.aspx.cs">
       <DependentUpon>ProductDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

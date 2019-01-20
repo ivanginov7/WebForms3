@@ -117,5 +117,10 @@ namespace WebForms3.Admin
         {
 
         }
+
+        protected void DropDownRemoveProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

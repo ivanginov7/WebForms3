@@ -54,7 +54,7 @@
         <tr>
             <td><asp:Label ID="LabelRemoveProduct" runat="server">Product:</asp:Label></td>
             <td><asp:DropDownList ID="DropDownRemoveProduct" runat="server" ItemType="WebForms3.Models.Product" 
-                    SelectMethod="GetProducts" AppendDataBoundItems="true" 
+                    SelectMethod="GetProducts" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="DropDownRemoveProduct_SelectedIndexChanged"
                     DataTextField="ProductName" DataValueField="ProductID" >
                 </asp:DropDownList>
             </td>

@@ -112,5 +112,10 @@ namespace WebForms3.Admin
                 }
             }
         }
+
+        protected void UpdateProductButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

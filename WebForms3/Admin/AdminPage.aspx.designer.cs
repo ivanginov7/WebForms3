@@ -265,22 +265,22 @@ namespace WebForms3.Admin {
         protected global::System.Web.UI.WebControls.Label UpdatePriceLabel;
         
         /// <summary>
-        /// TextBox3 control.
+        /// UpdatePriceTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox UpdatePriceTextBox;
         
         /// <summary>
-        /// RequiredFieldValidator7 control.
+        /// UpdatePriceRequiredFieldValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator UpdatePriceRequiredFieldValidator;
         
         /// <summary>
         /// RegularExpressionValidator2 control.
@@ -292,31 +292,40 @@ namespace WebForms3.Admin {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
-        /// Label5 control.
+        /// UpdateFileLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label UpdateFileLabel;
         
         /// <summary>
-        /// FileUpload1 control.
+        /// UpdateFileUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::System.Web.UI.WebControls.FileUpload UpdateFileUpload;
         
         /// <summary>
-        /// RequiredFieldValidator8 control.
+        /// UpdateFileRequiredFieldValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator UpdateFileRequiredFieldValidator;
+        
+        /// <summary>
+        /// UpdateProductButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UpdateProductButton;
         
         /// <summary>
         /// RemoveProductButton control.

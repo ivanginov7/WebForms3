@@ -16,7 +16,7 @@ namespace WebForms3.Logic
             Models.ApplicationDbContext context = new ApplicationDbContext();
             IdentityResult IdRoleResult;
             IdentityResult IdUserResult;
-
+            context.Database.CreateIfNotExists();
             // Create a RoleStore object by using the ApplicationDbContext object. 
             // The RoleStore is only allowed to contain IdentityRole objects.
             var roleStore = new RoleStore<IdentityRole>(context);

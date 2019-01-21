@@ -205,6 +205,10 @@
     <Content Include="AddToCart.aspx" />
     <Content Include="Admin\AdminDashboard.aspx" />
     <Content Include="Admin\AdminPage.aspx" />
+    <Content Include="App_Data\aspnet-WebForms3-20190114091518.mdf" />
+    <Content Include="App_Data\aspnet-WebForms3-20190114091518_log.ldf">
+      <DependentUpon>aspnet-WebForms3-20190114091518.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Catalog\Images\boatbig.png" />
     <Content Include="Catalog\Images\boatpaper.png" />
@@ -573,9 +577,7 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

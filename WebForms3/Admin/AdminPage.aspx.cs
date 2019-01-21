@@ -14,15 +14,19 @@ namespace WebForms3.Admin
         private Product updateProduct = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string productAction = Request.QueryString["ProductAction"];
-            if (productAction == "add")
-            {
-                LabelAddStatus.Text = "Product added!";
-            }
+            //string productAction = Request.QueryString["ProductAction"];
+            //if (productAction == "add")
+            //{
+            //    LabelAddStatus.Text = "Product added!";
+            //}
 
-            if (productAction == "remove")
+            //if (productAction == "remove")
+            //{
+            //    LabelRemoveStatus.Text = "Product removed!";
+            //}
+            if (Session["OutcomeMessage"] != null)
             {
-                LabelRemoveStatus.Text = "Product removed!";
+                LabelAddStatus.Text = Convert.ToString(Session["OutcomeMessage"]);
             }
         }
 
@@ -59,7 +63,7 @@ namespace WebForms3.Admin
 
                 // Add product data to DB.
                 AddProducts products = new AddProducts();
-                var ID = DropDownRemoveProduct.SelectedIndex;
+                var ID = Convert.ToInt16(DropDownRemoveProduct.SelectedValue);
                 bool addSuccess = false;
                 using (var db=new ApplicationDbContext())
                 {
@@ -69,6 +73,7 @@ namespace WebForms3.Admin
 
                         addSuccess = products.AddProduct(UpdateNameTextBox.Text, UpdateDescriptionTextBox.Text,
                         UpdatePriceTextBox.Text, UpdateCategoryDropDownList.SelectedValue, UpdateFileUpload.FileName,ID);
+
                     }
                     else
                     {
@@ -80,8 +85,9 @@ namespace WebForms3.Admin
                 if (addSuccess)
                 {
                     // Reload the page.
+                    Session["OutcomeMessage"] = ID == 0 ? "Added new product " + UpdateNameTextBox.Text : "Updated product " + UpdateNameTextBox.Text; 
                     string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
-                    Response.Redirect(pageUrl + "?ProductAction=add");
+                    Response.Redirect(pageUrl /*+ "?ProductAction=add"*/);
                 }
                 else
                 {
@@ -120,8 +126,9 @@ namespace WebForms3.Admin
                     _db.SaveChanges();
 
                     // Reload the page.
+                    Session["OutcomeMessage"] = "Removed product "+ UpdateNameTextBox.Text;
                     string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
-                    Response.Redirect(pageUrl + "?ProductAction=remove");
+                    Response.Redirect(pageUrl /*+ "?ProductAction=remove"*/);
                 }
                 else
                 {

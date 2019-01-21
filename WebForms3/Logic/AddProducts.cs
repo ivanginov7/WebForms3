@@ -8,7 +8,7 @@ namespace WebForms3.Logic
 {
     public class AddProducts
     {
-        public bool AddProduct(string ProductName, string ProductDesc, string ProductPrice, string ProductCategory, string ProductImagePath)
+        public bool AddProduct(string ProductName, string ProductDesc, string ProductPrice, string ProductCategory, string ProductImagePath, int ID=0)
         {
             var myProduct = new Product();
             myProduct.ProductName = ProductName;
@@ -19,8 +19,18 @@ namespace WebForms3.Logic
 
             using (var _db = new ApplicationDbContext())
             {
-                // Add product to DB.
-                _db.Products.Add(myProduct);
+                if (ID == 0)
+                {
+                    // Add new product to DB.
+                    _db.Products.Add(myProduct);
+
+                }
+                else
+                {
+                    //Update existing record
+                    myProduct.ProductID = ID;
+                    _db.Entry(myProduct).State = System.Data.Entity.EntityState.Modified;
+                }
                 _db.SaveChanges();
             }
             // Success.

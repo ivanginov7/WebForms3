@@ -26,7 +26,7 @@ namespace WebForms3.Admin
             }
         }
 
-        protected void AddProduct()
+        protected void UpdateProductButton_Click(object sender, EventArgs e)
         {
             Boolean fileOK = false;
             String path = Server.MapPath("~/Catalog/Images/");
@@ -59,8 +59,24 @@ namespace WebForms3.Admin
 
                 // Add product data to DB.
                 AddProducts products = new AddProducts();
-                bool addSuccess = products.AddProduct(UpdateNameTextBox.Text, UpdateDescriptionTextBox.Text,
-                    UpdatePriceTextBox.Text, UpdateCategoryDropDownList.SelectedValue, UpdateFileUpload.FileName);
+                var ID = DropDownRemoveProduct.SelectedIndex;
+                bool addSuccess = false;
+                using (var db=new ApplicationDbContext())
+                {
+                    if (db.Products.Any(p => p.ProductID == ID))
+                    {
+
+
+                        addSuccess = products.AddProduct(UpdateNameTextBox.Text, UpdateDescriptionTextBox.Text,
+                        UpdatePriceTextBox.Text, UpdateCategoryDropDownList.SelectedValue, UpdateFileUpload.FileName,ID);
+                    }
+                    else
+                    {
+                        addSuccess = products.AddProduct(UpdateNameTextBox.Text, UpdateDescriptionTextBox.Text,
+                        UpdatePriceTextBox.Text, UpdateCategoryDropDownList.SelectedValue, UpdateFileUpload.FileName);
+                    }
+                }
+                
                 if (addSuccess)
                 {
                     // Reload the page.
@@ -114,7 +130,7 @@ namespace WebForms3.Admin
             }
         }
 
-        protected void UpdateProductButton_Click(object sender, EventArgs e)
+        protected void UpdateProduct(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {
@@ -136,7 +152,7 @@ namespace WebForms3.Admin
                     }
                 } else
                 {
-                    AddProduct();
+                    //AddProduct();
                 }
             }
         }

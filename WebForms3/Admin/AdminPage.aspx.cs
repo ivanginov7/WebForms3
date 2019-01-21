@@ -130,38 +130,14 @@ namespace WebForms3.Admin
             }
         }
 
-        protected void UpdateProduct(object sender, EventArgs e)
-        {
-            if (Page.IsValid)
-            {
-                if (DropDownRemoveProduct.SelectedIndex > 0)
-                {
-                    using (var db = new ApplicationDbContext())
-                    {
-                        var ID = DropDownRemoveProduct.SelectedIndex;
-                        if (db.Products.Any(p => p.ProductID == ID))
-                        {
-                            var updatedProduct = new Product { ProductID = ID };
-                            updatedProduct.ProductName = UpdateNameTextBox.Text;
-                            updatedProduct.Description = UpdateDescriptionTextBox.Text;
-                            updatedProduct.UnitPrice = Convert.ToDouble(UpdatePriceTextBox.Text);
-                            updatedProduct.CategoryID = UpdateCategoryDropDownList.SelectedIndex + 1;
-                            db.Entry(updatedProduct).State = System.Data.Entity.EntityState.Modified;
-                            db.SaveChanges();
-                        }
-                    }
-                } else
-                {
-                    //AddProduct();
-                }
-            }
-        }
+        
 
         protected void DropDownRemoveProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
             using (var db = new ApplicationDbContext())
             {
-                this.updateProduct = db.Products.Where(p => p.ProductID == DropDownRemoveProduct.SelectedIndex).FirstOrDefault();
+                var dropdownValue = Convert.ToInt16(DropDownRemoveProduct.SelectedValue);
+                this.updateProduct = db.Products.Where(p => p.ProductID == dropdownValue).FirstOrDefault();
                 if (updateProduct != null)
                 {
                     UpdateNameTextBox.Text = updateProduct.ProductName;
